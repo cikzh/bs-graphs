@@ -40,9 +40,9 @@ function drawLine(beginX, beginY, endX, endY): void
 
 function drawText(text: string, x: number, y: number, color: string = "#000000", size: number = 25, font: string = "Arial"): void
 {
-    //context.beginPath();
+    context.beginPath();
     context.font = size+"px " + font;
     context.fillStyle = color;
     context.fillText(text, x, y);
-    //context.closePath();
+    context.closePath();
 }

@@ -1,6 +1,6 @@
 var pieChart: PieChart = {
     x: 200,
-    y: 200,
+    y: 300,
     size: 200,
     rotation: 90,
     colors: [
