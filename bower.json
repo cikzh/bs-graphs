@@ -16,6 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "^3.3.7"
+    "bootstrap-sass": "^3.3.7",
+    "EaselJS": "easeljs#^0.8.2",
+    "tween.js": "tweenjs#^16.6.0"
   }
 }

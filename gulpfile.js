@@ -6,6 +6,8 @@ var ts = require('gulp-typescript');
 var wiredep = require('wiredep').stream;
 var browserSync = require('browser-sync');
 
+var bowerFiles = require('main-bower-files');
+
 const reload = browserSync.reload;
 
 var dest = 'dist/';
@@ -49,16 +51,24 @@ gulp.task('html', ['styles'], function() {
     };
 
     var injectJSFiles = gulp.src('dist/scripts/*.js', {read: false});
+    var injectBowerFiles = gulp.src(bowerFiles(), {read: false}, {relative: false});
     var injectJSOptions = {
 	starttag: '<!-- inject:js -->',
 	endtag: '<!-- endinject -->',
 	ignorePath: ['src', 'dist'],
 	addRootSlash: false
     };
+
+    var injectBowerOptions = {
+	starttag: '<!-- inject:bower -->',
+	endtag: '<!-- endinject -->',
+	addRootSlash: false
+    };
     
     return gulp.src('src/index.html')
 	.pipe(inject(injectStyles, injectOptions))
 	.pipe(inject(injectJSFiles, injectJSOptions))
+        .pipe(inject(injectBowerFiles, injectBowerOptions))
 	.pipe(gulp.dest('dist'));
 });
 
@@ -69,7 +79,8 @@ gulp.task('scripts', function () {
                 alwaysStrict: true,
 		allowJs: true,
 		checkJs: true,
-                out: 'main.js'
+                out: 'main.js',
+                module: 'system'
 	    })
 	)
 	.pipe(gulp.dest('dist/scripts'));
@@ -80,7 +91,7 @@ gulp.task('serve', ['scripts', 'styles', 'html'], function () {
   browserSync({
     notify: false,
     // Customize the Browsersync console logging prefix
-    logPrefix: 'bs-dashboard',
+    logPrefix: 'bs-graph',
     // Allow scroll syncing across breakpoints
     scrollElementMapping: ['main', '.mdl-layout'],
     // Run as an https by uncommenting 'https: true'

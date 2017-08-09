@@ -1,3 +1,4 @@
+/*
 function drawRectangle(x, y, width, height, color): void
 {
     context.beginPath();
@@ -6,7 +7,6 @@ function drawRectangle(x, y, width, height, color): void
     context.fill();
     context.closePath();
 }
-
 function drawColumn(x, y, width, height, color): void
 {
     context.beginPath();
@@ -15,20 +15,9 @@ function drawColumn(x, y, width, height, color): void
     context.fill();
     context.closePath();
 }
+*/
 
-function drawCircle(x, y, radius, color, beginDegs, endDegs): void
-{
-    let beginRads = beginDegs * (Math.PI/180);
-    let endRads = endDegs * (Math.PI/180);
-
-    context.beginPath();
-    context.arc(x, y, radius, beginRads, endRads);
-    context.lineTo(x, y);
-    context.fillStyle = color;
-    context.fill();
-    context.closePath();
-}
-
+/*
 function drawLine(beginX, beginY, endX, endY): void
 {
     context.beginPath();
@@ -46,3 +35,4 @@ function drawText(text: string, x: number, y: number, color: string = "#000000",
     context.fillText(text, x, y);
     context.closePath();
 }
+*/

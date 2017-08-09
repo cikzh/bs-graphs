@@ -1,8 +1,14 @@
+var stroke: Stroke = {
+    color: "#ff0000",
+    thickness: 5
+};
+
 var pieChart: PieChart = {
-    x: 200,
+    x: 300,
     y: 300,
     size: 200,
-    rotation: 90,
+    rotation: 0,
+    sliceMargin: 3,
     colors: [
         "#ffee00",
         "#ff0000",
@@ -18,8 +24,8 @@ var pieChart: PieChart = {
 };
 
 var columnChart = {
-    x: 100,
-    y: 100,
+    x: 0,
+    y: 0,
     width: 400,
     height: 400,
     columnWidth: 20,
